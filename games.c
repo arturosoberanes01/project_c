@@ -67,6 +67,7 @@ int main()
           else
           {
             printf("\nLo sentimos, su respuesta no ha sido correcta :(\n");
+            n[3][3]={{0,0,0},{0,0,0},{0,0,0}};
           }
           break;
           case 'n':
