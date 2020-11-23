@@ -3,12 +3,13 @@
 int main()
 {
   //Variables del Sistema
-  int i = 0, opt, iSudoku=0;
+  int i = 0, opt, iSudoku;
   //Variables Sudoku
   char optSudoku;
   int n[3][3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
   int y, x;
   int a, b;
+  do
   {
     printf("Bienvenido a XGame.\nPor favor escoja que juego desea iniciar.\n");
     printf("1.Sudoku\n2.Gato\n3.Laberinto\n4.Salir\n");
@@ -16,7 +17,8 @@ int main()
     switch (opt)
     {
     case 1:
-      while (iSudoku < 1)
+      iSudoku=0;
+      do
       {
         printf("Desea Jugar 'Sudoku'? y/n: ");
         scanf("%s",&optSudoku);
@@ -68,12 +70,12 @@ int main()
           }
           break;
           case 'n':
-          
+          iSudoku=3;
           break;
           default:
           printf("\nOpción no válida\n");
         }
-      }
+      }while (iSudoku<1);
       break;
     case 2:
       printf("GATO\n");
