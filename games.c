@@ -1,7 +1,8 @@
 #include <stdio.h>
-
+#include <string.h>
 int main(){
-  int i=0, opt;
+  int i=0, opt, a=0;
+  char optSudoku
   do
   {
     printf("Bienvenido a XGame.\nPor favor escoja que juego desea iniciar.\n");
@@ -10,7 +11,15 @@ int main(){
     switch(opt)
     {
       case 1:
-        printf("SUDOKU\n");
+        do
+        {
+          printf("Desea Jugar 'Sudoku'? y/n");
+          scanf("%s",optSudoku);
+          switch
+          {
+            case 'y'
+          }
+        }while(a<1);
       break;
       case 2:
       printf("GATO\n");
