@@ -1,39 +1,93 @@
 #include <stdio.h>
 #include <string.h>
-int main(){
-  int i=0, opt, a=0;
-  char optSudoku
-  do
+int main()
+{
+  //Variables del Sistema
+  int i = 0, opt, iSudoku=0;
+  //Variables Sudoku
+  char optSudoku;
+  int n[3][3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+  int y, x;
+  int a, b;
   {
     printf("Bienvenido a XGame.\nPor favor escoja que juego desea iniciar.\n");
     printf("1.Sudoku\n2.Gato\n3.Laberinto\n4.Salir\n");
-    scanf("\n%d",&opt);
-    switch(opt)
+    scanf("\n%d", &opt);
+    switch (opt)
     {
-      case 1:
-        do
+    case 1:
+      while (iSudoku < 1)
+      {
+        printf("Desea Jugar 'Sudoku'? y/n: ");
+        scanf("%s",&optSudoku);
+        switch(optSudoku)
         {
-          printf("Desea Jugar 'Sudoku'? y/n");
-          scanf("%s",optSudoku);
-          switch
+        case 'y':
+          printf("Bienvenido a XGameSudoku!!\nUsted debe introducir los numeros del 1 al 9 de tal manera que las filas al sumarse den 15, así como las diagonáles deben dar 15 también.\nEl orden en el que se irán leyendo los datos es el siguinte...\n1  2  3\n4  5  6\n7  8  9\nLe recomendamos usar un cuaderno para realizar este juego.\nEXITO!!");
+          for (y = 0; y <= 2; y++)
           {
-            case 'y'
+            for (x = 0; x <= 2; x++)
+            {
+              printf("Ingresa un número\n");
+              scanf("%d", &n[x][y]);
+              if (n[x][y] <= 9)
+              {
+                for (a = 0; a <= 2; a++)
+                {
+                  for (b = 0; b <= 2; b++)
+                  {
+                    printf("%d\t", n[b][a]);
+                  }
+                  printf("\n");
+                }
+              }
+              else
+              {
+                printf("Solo puede poner números del 1 al 9, vuelva a intentarlo\n");
+                x = 0;
+                y = 0;
+              }
+            }
+            printf("\n");
           }
-        }while(a<1);
+          for (y = 0; y <= 2; y++)
+          {
+            for (x = 0; x <= 2; x++)
+            {
+              printf("%d\t", n[x][y]);
+            }
+            printf("\n");
+          }
+          if (n[0][0] + n[1][0] + n[2][0] == 15 && n[0][0] + n[0][1] + n[0][2] == 15 && n[0][0] + n[1][1] + n[2][2] == 15 && n[0][1] + n[1][1] + n[2][1] == 15 && n[0][2] + n[1][2] + n[2][2] == 15 && n[1][0] + n[1][1] + n[1][2] == 15 && n[2][0] + n[2][1] + n[2][2] == 15)
+          {
+            printf("\nEnhorabuena, USTED HA GANADO!!!\n");
+          }
+          else
+          {
+            printf("\nLo sentimos, su respuesta no ha sido correcta :(\n");
+          }
+          break;
+          case 'n':
+          
+          break;
+          default:
+          printf("\nOpción no válida\n");
+        }
+      }
       break;
-      case 2:
+    case 2:
       printf("GATO\n");
       break;
-      case 3:
+    case 3:
       printf("LABERINTO\n");
       break;
-      case 4:
-      i=3;
+    case 4:
+      i = 3;
       break;
-      default:
+    default:
       printf("Opción no válida\n");
     }
-  }while(i<1);
+  }while (i < 1);
   printf("Muchas gracias por usar XGame\n");
   return 0;
 }
